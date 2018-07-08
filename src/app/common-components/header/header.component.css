@@ -1,0 +1,10 @@
+mat-toolbar {
+  background: #545b66;
+  height: 80px;
+}
+
+#header-title {
+  color: white;
+  font-size: 36px;
+  /* padding: 0 0 0 20px; */
+}

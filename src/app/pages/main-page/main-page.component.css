@@ -1,7 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 mat-sidenav-container {
    position: fixed;
    height: 100%;
    min-height: 100%;
    width: 100%;
    min-width: 100%;
+}
+
+mat-sidenav {
+  width: 220px;
+}
+
+mat-sidenav ul li {
+  padding: 40px 20px 0 20px;
+  cursor: pointer;
+}
+
+mat-sidenav ul li:hover {
+  font-weight: bold;
 }
