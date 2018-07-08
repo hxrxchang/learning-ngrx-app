@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Add a task</h1>
+<mat-dialog-content id="content">
+  <mat-form-field class="task-input">
+    <input matInput placeholder="title">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="task-input">
+    <textarea matInput placeholder="detail"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions id="button-group">
+  <button mat-raised-button>add</button>
+  <button mat-raised-button mat-dialog-close="cancel">cancel</button>
+</mat-dialog-actions>
