@@ -6,5 +6,13 @@ mat-toolbar {
 #header-title {
   color: white;
   font-size: 36px;
-  /* padding: 0 0 0 20px; */
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+button {
+  font-size: 30px;
+  cursor: pointer;
 }
