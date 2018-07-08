@@ -7,8 +7,14 @@
   <mat-form-field class="task-input">
     <textarea matInput placeholder="detail"></textarea>
   </mat-form-field>
+  <br>
+  <mat-form-field class="task-input">
+    <input matInput [matDatepicker]="picker" placeholder="deadline">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
 </mat-dialog-content>
-<mat-dialog-actions id="button-group">
+<mat-dialog-actions>
   <button mat-raised-button>add</button>
   <button mat-raised-button mat-dialog-close="cancel">cancel</button>
 </mat-dialog-actions>

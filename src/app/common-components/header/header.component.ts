@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
 
   openAddTaskModal() {
     const dialog = this.matDialog.open(AddTaskModalComponent, {
-      'height': '300px',
       'width': '500px',
       'disableClose': false
     });
