@@ -9,9 +9,9 @@
   </mat-form-field>
   <br>
   <mat-form-field class="task-input">
-    <input matInput [matDatepicker]="picker" placeholder="deadline">
+    <input matInput [matDatepicker]="picker" placeholder="deadline" disabled>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+    <mat-datepicker #picker disabled="false"></mat-datepicker>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
