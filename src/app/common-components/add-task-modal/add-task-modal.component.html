@@ -1,20 +1,20 @@
 <h1 mat-dialog-title>Add a task</h1>
 <mat-dialog-content id="content">
   <mat-form-field class="task-input">
-    <input matInput placeholder="title">
+    <input matInput placeholder="title" [(ngModel)]="taskTitle">
   </mat-form-field>
   <br>
   <mat-form-field class="task-input">
-    <textarea matInput placeholder="detail"></textarea>
+    <textarea matInput placeholder="detail" [(ngModel)]="taskDetail"></textarea>
   </mat-form-field>
   <br>
   <mat-form-field class="task-input">
-    <input matInput [matDatepicker]="picker" placeholder="deadline">
+    <input matInput [matDatepicker]="picker" placeholder="deadline" [(ngModel)]="taskDeadline">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-raised-button>add</button>
+  <button mat-raised-button (click)="addTask();">add</button>
   <button mat-raised-button mat-dialog-close="cancel">cancel</button>
 </mat-dialog-actions>

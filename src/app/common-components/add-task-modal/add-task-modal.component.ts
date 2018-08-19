@@ -7,6 +7,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./add-task-modal.component.css']
 })
 export class AddTaskModalComponent implements OnInit {
+  public taskTitle: string;
+  public taskDetail: string;
+  public taskDeadline;
+
   constructor(
     // @Inject(MAT_DIALOG_DATA) public data: any,
     public matDialogRef: MatDialogRef<AddTaskModalComponent>
@@ -14,7 +18,8 @@ export class AddTaskModalComponent implements OnInit {
 
   ngOnInit() {}
 
-  onClickOkButton(): void {
-    this.matDialogRef.close('OK');
+  addTask() {
+    console.log(this.taskTitle, this.taskDeadline, this.taskDeadline);
+    console.log(typeof(this.taskDeadline));
   }
 }
