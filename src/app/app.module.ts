@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MatNativeDateModule } from '@angular/material';
     HeaderComponent,
     MainPageComponent,
     AddTaskModalComponent,
+    SignInComponent,
   ],
   entryComponents: [AddTaskModalComponent],
   imports: [
