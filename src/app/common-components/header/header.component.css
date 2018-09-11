@@ -3,9 +3,14 @@ mat-toolbar {
   height: 80px;
 }
 
+#menu {
+  color: white;
+}
+
 #header-title {
   color: white;
   font-size: 36px;
+  margin-left: 10px;
 }
 
 .spacer {
