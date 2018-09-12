@@ -5,6 +5,7 @@ mat-toolbar {
 
 #menu {
   color: white;
+  cursor: pointer;
 }
 
 #header-title {
