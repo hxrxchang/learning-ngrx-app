@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 
-// import * as fromLayout from './../reducers';
+import * as fromRoot from './../reducers';
+import * as fromLayout from './../reducers/layout.reducer';
 
 @Component({
   selector: 'app-top-container',
@@ -10,15 +12,19 @@ import { Observable } from 'rxjs';
   styleUrls: ['./top-container.component.css']
 })
 export class TopContainerComponent implements OnInit {
+  public isSideNavOpen$: Observable<boolean>;
+  private subscription: Subscription;
+
   constructor(
-    // private store: Store<fromLayout.State>
-  ) { }
+    private store: Store<fromRoot.State>
+  ) {
+    this.isSideNavOpen$ = this.store.pipe(select(fromRoot.getIsSideNavOpen);
+    this.subscription = new Subscription();
+  }
 
   ngOnInit() {
-    console.log('2222');
-    // this.store.subscribe(data => {
-    //   console.log('11111111111111');
-    //   console.log(data);
-    // });
+    this.isSideNavOpen$.subscribe(data => {
+      console.log(data);
+    });
   }
 }

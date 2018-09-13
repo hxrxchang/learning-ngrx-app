@@ -14,7 +14,5 @@ export const reducers: ActionReducerMap<State> = {
   layout: fromLayout.reducer
 }
 
-export const getFeatureState = createFeatureSelector<State>('todo');
-
-export const getLayoutState = createSelector(getFeatureState, state => state.layout);
-export const getIsSideNavOpen = createSelector(getLayoutState, fromLayout.getIsSideNavOpen);
+export const getLayoutState = createFeatureSelector<fromLayout.State>('layout');
+export const getIsSideNavOpen = createSelector(getLayoutState, state => state.isSideNavOpen);
