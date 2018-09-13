@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <mat-icon id="menu">menu</mat-icon>
+  <mat-icon id="menu" (click)="onClickChangeSideNavState()">menu</mat-icon>
   <h1 id="header-title">{{ headerTitie }}</h1>
   <span class="spacer"></span>
   <button mat-fab color="white" (click)="openAddTaskModal();">

@@ -9,13 +9,13 @@ const initialState: State = {
 }
 
 export function reducer(state = initialState, action: LayoutActions): State {
-  console.log(state);
+  console.log(state, action.type);
   switch(action.type) {
     case LayoutActionTypes.OpenSideNav:
-      return {...state, isSideNavOpen: false};
+      return {...state, isSideNavOpen: true};
 
     case LayoutActionTypes.CloseSideNav:
-      return {...state, isSideNavOpen: true};
+      return {...state, isSideNavOpen: false};
 
     default:
       return state;

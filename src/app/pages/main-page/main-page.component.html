@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-  <mat-sidenav mode="side" opened>
+  <mat-sidenav #sidenav mode="side" [opened]="isSideNavOpen$ | async">
     <ul>
       <li>Uncompleted Tasks</li>
       <li>Completed Tasks</li>

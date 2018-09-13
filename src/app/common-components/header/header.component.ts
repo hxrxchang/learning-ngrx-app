@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { MatDialog } from '@angular/material';
 import { AddTaskModalComponent } from '../add-task-modal/add-task-modal.component';
@@ -10,6 +10,7 @@ import { AddTaskModalComponent } from '../add-task-modal/add-task-modal.componen
 })
 export class HeaderComponent implements OnInit {
   @Input() isSideNavOpen: boolean;
+  @Output() changeSideNavState = new EventEmitter<boolean>();
   public headerTitie: string;
 
   constructor(private matDialog: MatDialog) {
@@ -29,5 +30,9 @@ export class HeaderComponent implements OnInit {
     // dialog.afterClosed().subscribe(result => {
     //   console.log('1111111111111');
     // });
+  }
+
+  onClickChangeSideNavState() {
+    this.changeSideNavState.emit(this.isSideNavOpen);
   }
 }

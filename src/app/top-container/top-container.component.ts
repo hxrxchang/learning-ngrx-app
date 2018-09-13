@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
 
 import * as fromRoot from './../reducers';
-import * as fromLayout from './../reducers/layout.reducer';
+import * as layout from './../actions/layout.action';
 
 @Component({
   selector: 'app-top-container',
@@ -18,7 +18,7 @@ export class TopContainerComponent implements OnInit {
   constructor(
     private store: Store<fromRoot.State>
   ) {
-    this.isSideNavOpen$ = this.store.pipe(select(fromRoot.getIsSideNavOpen);
+    this.isSideNavOpen$ = this.store.pipe(select(fromRoot.getIsSideNavOpen));
     this.subscription = new Subscription();
   }
 
@@ -26,5 +26,18 @@ export class TopContainerComponent implements OnInit {
     this.isSideNavOpen$.subscribe(data => {
       console.log(data);
     });
+  }
+
+  changeSideNavState(sideNavState: boolean) {
+    switch (sideNavState) {
+      case true:
+        this.store.dispatch(new layout.CloseSideNav());
+        break;
+      case false:
+        this.store.dispatch(new layout.OpenSideNav());
+        break;
+      default:
+        break;
+    }
   }
 }
