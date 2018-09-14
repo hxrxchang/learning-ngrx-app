@@ -5,13 +5,16 @@ import {
 } from "@ngrx/store";
 
 import * as fromLayout from './layout.reducer';
+import * as fromTodo from './todo.reducer';
 
 export interface State {
-  layout: fromLayout.State
+  layout: fromLayout.State,
+  todo: fromTodo.State
 }
 
 export const reducers: ActionReducerMap<State> = {
-  layout: fromLayout.reducer
+  layout: fromLayout.reducer,
+  todo: fromTodo.reducer
 }
 
 export const getLayoutState = createFeatureSelector<fromLayout.State>('layout');

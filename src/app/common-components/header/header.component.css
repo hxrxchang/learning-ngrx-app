@@ -19,7 +19,7 @@ mat-toolbar {
 }
 
 button {
-  margin-right: 60px;
+  margin-right: 2vw;
   font-size: 30px;
   cursor: pointer;
 }
