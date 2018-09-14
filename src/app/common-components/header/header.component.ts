@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { AddTaskModalComponent } from '../add-task-modal/add-task-modal.component';
 
@@ -10,7 +10,9 @@ import { AddTaskModalComponent } from '../add-task-modal/add-task-modal.componen
 })
 export class HeaderComponent implements OnInit {
   @Input() isSideNavOpen: boolean;
+  @Input() todoForm: FormGroup;
   @Output() changeSideNavState = new EventEmitter<boolean>();
+  @Output() addTask = new EventEmitter<FormGroup>();
   public headerTitie: string;
 
   constructor(private matDialog: MatDialog) {
@@ -18,18 +20,20 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.isSideNavOpen);
   }
 
   openAddTaskModal() {
     const dialog = this.matDialog.open(AddTaskModalComponent, {
       width: "50vw",
+      data: { todoForm: this.todoForm },
       disableClose: false
     });
 
-    // dialog.afterClosed().subscribe(result => {
-    //   console.log('1111111111111');
-    // });
+    dialog.afterClosed().subscribe(task => {
+      if (task) {
+        this.addTask.emit(task);
+      }
+    });
   }
 
   onClickChangeSideNavState() {

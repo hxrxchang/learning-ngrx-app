@@ -1,2 +1,6 @@
-<app-header [isSideNavOpen]="isSideNavOpen$ | async" (changeSideNavState)="changeSideNavState($event)"></app-header>
+<app-header
+[isSideNavOpen]="isSideNavOpen$ | async"
+(changeSideNavState)="changeSideNavState($event)"
+[todoForm]="todoForm"
+(addTask)="addTask($event)"></app-header>
 <router-outlet></router-outlet>

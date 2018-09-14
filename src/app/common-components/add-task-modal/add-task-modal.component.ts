@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-task-modal',
@@ -7,19 +8,19 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./add-task-modal.component.css']
 })
 export class AddTaskModalComponent implements OnInit {
-  public taskTitle: string;
-  public taskDetail: string;
-  public taskDeadline;
+  public todoFormGroup: FormGroup;
 
   constructor(
-    // @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     public matDialogRef: MatDialogRef<AddTaskModalComponent>
-  ) {}
+  ) {
+    this.todoFormGroup = this.data.todoForm;
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
-  addTask() {
-    console.log(this.taskTitle, this.taskDeadline, this.taskDeadline);
-    console.log(typeof(this.taskDeadline));
+  onSubmit() {
+    this.matDialogRef.close(this.todoFormGroup);
   }
 }

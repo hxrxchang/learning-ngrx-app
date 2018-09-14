@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
@@ -30,6 +30,7 @@ import { TopContainerComponent } from './top-container/top-container.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
