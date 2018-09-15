@@ -51,7 +51,7 @@ export class TopContainerComponent implements OnInit {
       deadline: todoForm.value.deadline
     }
 
-    this.todoService.add(params).then(data => {
+    this.todoService.add(params).subscribe(data => {
       console.log(data);
     });
   }
