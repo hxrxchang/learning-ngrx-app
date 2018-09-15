@@ -20,6 +20,5 @@ export class TodoEffects {
     private actions$: Action,
     private todoService: RecordTodoService
   ) {
-
   }
 }

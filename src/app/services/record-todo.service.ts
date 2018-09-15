@@ -8,14 +8,22 @@ const KEY = 'Todo'
   providedIn: 'root'
 })
 export class RecordTodoService {
-  constructor() { }
-
-  fetch(): Todo[] {
-    return JSON.parse(localStorage.getItem(KEY)) || [];
+  constructor() {
   }
 
-  add(todo: Todo): void {
-    const todos = this.fetch().concat(todo);
-    localStorage.setItem(KEY, JSON.stringify(todos));
+  fetch(): Promise<Todo[]> {
+    return Promise.resolve().then(() => {
+      return JSON.parse(localStorage.getItem(KEY)) || [];
+    });
+  }
+
+  add(todo: Todo): any {
+    const todos = JSON.parse(localStorage.getItem(KEY)) || [];
+
+    const newTodos = todos.concat(todo);
+    return Promise.resolve().then(() => {
+      localStorage.setItem(KEY, JSON.stringify(newTodos));
+      return newTodos;
+    });
   }
 }

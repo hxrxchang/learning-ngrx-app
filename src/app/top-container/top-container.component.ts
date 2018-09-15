@@ -51,7 +51,9 @@ export class TopContainerComponent implements OnInit {
       deadline: todoForm.value.deadline
     }
 
-    this.todoService.add(params);
+    this.todoService.add(params).then(data => {
+      console.log(data);
+    });
   }
 
   changeSideNavState(sideNavState: boolean) {
