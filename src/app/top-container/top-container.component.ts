@@ -8,6 +8,8 @@ import { Todo } from './../models/todo.model';
 import * as fromRoot from './../reducers';
 import * as layoutAction from './../actions/layout.action';
 
+import { RecordTodoService } from './../services/record-todo.service';
+
 @Component({
   selector: 'app-top-container',
   templateUrl: './top-container.component.html',
@@ -20,7 +22,8 @@ export class TopContainerComponent implements OnInit {
 
   constructor(
     private store: Store<fromRoot.State>,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private todoService: RecordTodoService
   ) {
     this.todoForm = this.initFormGroup();
     this.isSideNavOpen$ = this.store.pipe(select(fromRoot.getIsSideNavOpen));
@@ -39,14 +42,16 @@ export class TopContainerComponent implements OnInit {
   }
 
   addTask(todoForm) {
+    const id = this.setRandomStringId();
     const params: Todo =  {
+      id: id,
       title: todoForm.value.title,
-      description: todoForm.value.description,
+       description: todoForm.value.description,
       is_complete: false,
       deadline: todoForm.value.deadline
     }
 
-    console.log(params);
+    this.todoService.add(params);
   }
 
   changeSideNavState(sideNavState: boolean) {
@@ -60,5 +65,16 @@ export class TopContainerComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  setRandomStringId() {
+    const str: string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&=~/*-+';
+    const length: number = 8;
+    let id = '';
+    for (let i=0; i<=length; i++) {
+      id += str.charAt(Math.floor(Math.random() * str.length));
+    }
+
+    return id;
   }
 }
