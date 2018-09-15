@@ -7,7 +7,7 @@ import { map, concatMap,  catchError } from 'rxjs/operators'
 import { RecordTodoService } from './../services/record-todo.service';
 import { Todo } from './../models/todo.model';
 import {
-  TodoActions,
+  TodoActionTypes,
   GetTasks,
   GetTasksComplete,
   AddTask,
@@ -17,8 +17,12 @@ import {
 @Injectable()
 export class TodoEffects {
   constructor(
-    private actions$: Action,
+    private actions$: Actions,
     private todoService: RecordTodoService
-  ) {
-  }
+  ) {}
+
+  @Effect()
+  getTasks$: Observable<Action> = this.actions$.pipe(
+    
+  );
 }

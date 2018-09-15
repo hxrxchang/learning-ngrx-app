@@ -52,7 +52,6 @@ export class TopContainerComponent implements OnInit {
     }
 
     this.todoService.add(params).subscribe(data => {
-      console.log(data);
     });
   }
 
