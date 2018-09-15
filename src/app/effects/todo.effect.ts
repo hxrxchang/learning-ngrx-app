@@ -23,6 +23,23 @@ export class TodoEffects {
 
   @Effect()
   getTasks$: Observable<Action> = this.actions$.pipe(
-    
+    ofType<GetTasks>(TodoActionTypes.GetTasks),
+    concatMap(() => {
+      return this.todoService
+        .fetch()
+        .pipe(map(result => new GetTasksComplete({ todoList: result })));
+    })
+  );
+
+  @Effect()
+  addTask$: Observable<Action> = this.actions$.pipe(
+    ofType<AddTask>(TodoActionTypes.AddTask),
+    map(action => action.payload),
+    concatMap(payload => {
+      const todo = payload;
+      return this.todoService
+        .add(todo)
+        .pipe(map(result => new GetTasksComplete({ todoList: result })));
+    })
   );
 }

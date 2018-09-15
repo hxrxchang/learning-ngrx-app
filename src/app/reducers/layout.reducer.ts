@@ -9,7 +9,6 @@ const initialState: State = {
 }
 
 export function reducer(state = initialState, action: LayoutActions): State {
-  console.log(state, action.type);
   switch(action.type) {
     case LayoutActionTypes.OpenSideNav:
       return {...state, isSideNavOpen: true};
@@ -21,5 +20,3 @@ export function reducer(state = initialState, action: LayoutActions): State {
       return state;
   }
 }
-
-// export const getIsSideNavOpen = (state: State) => state.isSideNavOpen;

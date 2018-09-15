@@ -11,16 +11,19 @@ const initialState: State = {
 }
 
 export function reducer(state = initialState, action: TodoActions): State {
-  console.log('this is in todo reducer', state, action.type);
   switch(action.type) {
-    case TodoActionTypes.AddTaskComplete:
-      return {...state};
+    case TodoActionTypes.GetTasksComplete:
+      const todoList = action.payload.todoList;
+      return {...state, todoList: todoList};
 
-    case TodoActionTypes.FinishTaskComplete:
-      return {...state};
+    // case TodoActionTypes.AddTaskComplete:
+    //   return {...state};
 
-    case TodoActionTypes.UnfinishTaskComplete:
-      return {...state};
+    // case TodoActionTypes.FinishTaskComplete:
+    //   return {...state};
+
+    // case TodoActionTypes.UnfinishTaskComplete:
+    //   return {...state};
 
     default:
       return state;

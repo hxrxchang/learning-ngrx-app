@@ -27,8 +27,4 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  addTask() {
-    this.store.dispatch(new todoAction.AddTask());
-  }
 }

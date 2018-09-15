@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 import { MaterialModule } from './material';
 import { reducers } from './reducers'
+import { TodoEffects } from "./effects/todo.effect";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -34,6 +36,7 @@ import { TopContainerComponent } from './top-container/top-container.component';
     MaterialModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([TodoEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     })

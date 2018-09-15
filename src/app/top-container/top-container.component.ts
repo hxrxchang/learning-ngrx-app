@@ -7,6 +7,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Todo } from './../models/todo.model';
 import * as fromRoot from './../reducers';
 import * as layoutAction from './../actions/layout.action';
+import * as TodoAction from './../actions/todo.action';
 
 import { RecordTodoService } from './../services/record-todo.service';
 
@@ -31,6 +32,7 @@ export class TopContainerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.store.dispatch(new TodoAction.GetTasks());
   }
 
   private initFormGroup(): FormGroup {
@@ -43,16 +45,15 @@ export class TopContainerComponent implements OnInit {
 
   addTask(todoForm) {
     const id = this.setRandomStringId();
-    const params: Todo =  {
+    const params: Todo = {
       id: id,
       title: todoForm.value.title,
-       description: todoForm.value.description,
+      description: todoForm.value.description,
       is_complete: false,
       deadline: todoForm.value.deadline
     }
 
-    this.todoService.add(params).subscribe(data => {
-    });
+    this.store.dispatch(new TodoAction.AddTask(params));
   }
 
   changeSideNavState(sideNavState: boolean) {
