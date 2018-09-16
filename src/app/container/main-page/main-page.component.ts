@@ -29,7 +29,7 @@ export class MainPageComponent implements OnInit {
 
   constructor(
     private store: Store<fromRoot.State>,
-    private fb: FormBuilder;
+    private fb: FormBuilder
   ) {
     this.subscription = new Subscription();
     this.todoForm = this.initFormGroup();
@@ -70,6 +70,7 @@ export class MainPageComponent implements OnInit {
     }
 
     this.store.dispatch(new TodoAction.AddTask(params));
+    this.todoForm.reset();
   }
 
   setRandomStringId() {
