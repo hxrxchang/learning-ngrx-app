@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TopContainerComponent } from './top-container.component';
+import { UncompleteTasksComponent } from './uncomplete-tasks.component';
 
-describe('TopContainerComponent', () => {
-  let component: TopContainerComponent;
-  let fixture: ComponentFixture<TopContainerComponent>;
+describe('UncompleteTasksComponent', () => {
+  let component: UncompleteTasksComponent;
+  let fixture: ComponentFixture<UncompleteTasksComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopContainerComponent ]
+      declarations: [ UncompleteTasksComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TopContainerComponent);
+    fixture = TestBed.createComponent(UncompleteTasksComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

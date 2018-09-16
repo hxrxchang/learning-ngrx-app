@@ -16,7 +16,7 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { AddTaskModalComponent } from './components/add-task-modal/add-task-modal.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
-import { TopContainerComponent } from './top-container/top-container.component';
+import { UncompleteTasksComponent } from './container/uncomplete-tasks/uncomplete-tasks.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { TopContainerComponent } from './top-container/top-container.component';
     AddTaskModalComponent,
     SignInComponent,
     SignUpComponent,
-    TopContainerComponent
+    UncompleteTasksComponent
   ],
   entryComponents: [AddTaskModalComponent],
   imports: [

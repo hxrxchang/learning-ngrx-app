@@ -1,3 +1,8 @@
+<app-header
+[isSideNavOpen]="isSideNavOpen$ | async"
+(changeSideNavState)="changeSideNavState($event)"
+[todoForm]="todoForm"
+(addTask)="addTask($event)"></app-header>
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" [opened]="isSideNavOpen$ | async">
     <ul>
@@ -6,6 +11,6 @@
     </ul>
   </mat-sidenav>
   <mat-sidenav-content>
-    Main Content
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
