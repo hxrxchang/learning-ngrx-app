@@ -1,0 +1,13 @@
+#title {
+  font-size: 25px;
+}
+
+.item {
+  cursor: pointer;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  right: 4vw;
+}

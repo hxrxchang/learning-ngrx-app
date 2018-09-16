@@ -38,6 +38,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
     this.isSideNavOpen$ = this.store.pipe(select(fromRoot.getIsSideNavOpen));
     this.todos$ = this.store.pipe(select(fromRoot.getTasks));
     this.isMobile$ = this.store.pipe(select(fromRoot.getIsMobile));
+    this.store.dispatch(new TodoAction.GetTasks());
     this.mode = 'side';
   }
 
@@ -56,8 +57,10 @@ export class MainPageComponent implements OnInit, OnDestroy {
 
     const sizeSub = this.isMobile$.subscribe(isMobile => {
       if (isMobile) this.mode = 'over';
-    })
+    });
+
     this.subscription.add(todoSub);
+    this.subscription.add(sizeSub);
   }
 
   ngOnDestroy() {

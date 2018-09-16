@@ -1,3 +1,8 @@
-<p>
-  uncomplete-tasks works!
-</p>
+<h1 id="title">uncomplete Task List</h1>
+<mat-list>
+  <mat-list-item class="item" *ngFor="let todo of uncompleteTodoList">
+    <div>{{todo.title}}</div>
+    <mat-icon class="icon">check_circle_outline</mat-icon>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
