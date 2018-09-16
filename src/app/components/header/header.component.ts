@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   public headerTitie: string;
 
   constructor(private matDialog: MatDialog) {
-    this.headerTitie = "My Todo";
+    this.headerTitie = 'My Todo';
   }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
 
   openAddTaskModal() {
     const dialog = this.matDialog.open(AddTaskModalComponent, {
-      width: "50vw",
+      width: '80vw',
       data: { todoForm: this.todoForm },
       disableClose: false
     });

@@ -1,11 +1,13 @@
 import { LayoutActions, LayoutActionTypes } from './../actions/layout.action';
 
 export interface State {
-  isSideNavOpen: boolean
+  isSideNavOpen: boolean,
+  isMobile: boolean,
 }
 
 const initialState: State = {
-  isSideNavOpen: true
+  isSideNavOpen: true,
+  isMobile: false,
 }
 
 export function reducer(state = initialState, action: LayoutActions): State {
@@ -15,6 +17,9 @@ export function reducer(state = initialState, action: LayoutActions): State {
 
     case LayoutActionTypes.CloseSideNav:
       return {...state, isSideNavOpen: false};
+
+    case LayoutActionTypes.UseMobile:
+      return {...state, isMobile: true};
 
     default:
       return state;
