@@ -2,7 +2,9 @@
 <mat-list>
   <mat-list-item class="item" *ngFor="let todo of uncompleteTodoList">
     <div>{{todo.title}}</div>
-    <mat-icon class="icon">check_circle_outline</mat-icon>
+    <div class="icons">
+      <mat-icon class="icon">check_circle_outline</mat-icon>
+    </div>
     <mat-divider></mat-divider>
   </mat-list-item>
 </mat-list>

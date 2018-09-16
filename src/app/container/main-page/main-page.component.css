@@ -23,3 +23,7 @@ mat-sidenav ul li {
 mat-sidenav ul li:hover {
   font-weight: bold;
 }
+
+#footer {
+  height: 100px;
+}
