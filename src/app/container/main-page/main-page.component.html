@@ -2,9 +2,10 @@
 [isSideNavOpen]="isSideNavOpen$ | async"
 (changeSideNavState)="changeSideNavState($event)"
 [todoForm]="todoForm"
-(addTask)="addTask($event)"></app-header>
+(addTask)="addTask($event)"
+[isMobile]="isMobile$ | async"></app-header>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" [opened]="isSideNavOpen$ | async">
+  <mat-sidenav #sidenav [mode]="mode" [opened]="isSideNavOpen$ | async">
     <ul>
       <li>Uncompleted Tasks</li>
       <li>Completed Tasks</li>

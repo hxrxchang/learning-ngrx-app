@@ -27,6 +27,7 @@ export class AppComponent implements OnInit, OnDestroy {
     const ditectDeviceSub = this.isExtraSmall.subscribe(size => {
       if (size.matches) {
         this.store.dispatch(new LayoutAction.UseMobile());
+        this.store.dispatch(new LayoutAction.CloseSideNav());
       }
     });
 

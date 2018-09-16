@@ -22,3 +22,4 @@ export const getTasks = createSelector(getTodoState, state => state.todoList);
 
 export const getLayoutState = createFeatureSelector<fromLayout.State>('layout');
 export const getIsSideNavOpen = createSelector(getLayoutState, state => state.isSideNavOpen);
+export const getIsMobile = createSelector(getLayoutState, state => state.isMobile);

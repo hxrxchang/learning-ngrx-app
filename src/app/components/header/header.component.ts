@@ -11,6 +11,7 @@ import { AddTaskModalComponent } from '../add-task-modal/add-task-modal.componen
 export class HeaderComponent implements OnInit {
   @Input() isSideNavOpen: boolean;
   @Input() todoForm: FormGroup;
+  @Input() isMobile: boolean;
   @Output() changeSideNavState = new EventEmitter<boolean>();
   @Output() addTask = new EventEmitter<FormGroup>();
   public headerTitie: string;
@@ -23,8 +24,10 @@ export class HeaderComponent implements OnInit {
   }
 
   openAddTaskModal() {
+    let dialogWidth = '50vw';
+    if (this.isMobile) dialogWidth = '80vw';
     const dialog = this.matDialog.open(AddTaskModalComponent, {
-      width: '80vw',
+      width: dialogWidth,
       data: { todoForm: this.todoForm },
       disableClose: false
     });
