@@ -11,7 +11,7 @@ import {
   GetTasks,
   GetTasksComplete,
   AddTask,
-  AddTaskComplete
+  FinishTask
 } from './../actions/todo.action';
 
 @Injectable()
@@ -39,6 +39,32 @@ export class TodoEffects {
       const todo = payload;
       return this.todoService
         .add(todo)
+        .pipe(map(result => new GetTasksComplete({ todoList: result })));
+    })
+  );
+
+  @Effect()
+  finishTask$: Observable<Action> = this.actions$.pipe(
+    ofType<FinishTask>(TodoActionTypes.FinishTask),
+    map(action => action.payload),
+    concatMap(payload => {
+      const todo = payload;
+      const isComplete = true;
+      return this.todoService
+        .changeState(todo, isComplete)
+        .pipe(map(result => new GetTasksComplete({ todoList: result})));
+    })
+  );
+
+  @Effect()
+  unFinishTask$: Observable<Action> = this.actions$.pipe(
+    ofType<FinishTask>(TodoActionTypes.UnfinishTask),
+    map(action => action.payload),
+    concatMap(payload => {
+      const todo = payload;
+      const isComplete = false;
+      return this.todoService
+        .changeState(todo, isComplete)
         .pipe(map(result => new GetTasksComplete({ todoList: result })));
     })
   );

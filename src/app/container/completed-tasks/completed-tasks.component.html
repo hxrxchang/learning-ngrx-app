@@ -1,3 +1,10 @@
-<p>
-  completed-tasks works!
-</p>
+<h1 id="title">completed Task List</h1>
+<mat-list>
+  <mat-list-item class="item" *ngFor="let todo of completedTodoList">
+    <div (click)="onClickView(todo)">{{todo.title}}</div>
+    <div class="icons">
+      <mat-icon class="icon" (click)="onClickChangeState(todo)">check_circle</mat-icon>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

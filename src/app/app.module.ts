@@ -32,7 +32,10 @@ import { TodoViewerComponent } from './components/todo-viewer/todo-viewer.compon
     CompletedTasksComponent,
     TodoViewerComponent
   ],
-  entryComponents: [AddTaskModalComponent],
+  entryComponents: [
+    AddTaskModalComponent,
+    TodoViewerComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,

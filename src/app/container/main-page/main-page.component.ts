@@ -22,7 +22,6 @@ import * as LayoutAction from './../../actions/layout.action';
 export class MainPageComponent implements OnInit, OnDestroy {
   public isSideNavOpen$: Observable<boolean>;
   private subscription: Subscription;
-  public todos$: Observable<Todo[]>;
   public finishedTodoList: Todo[];
   public unfinishedTodoList: Todo[];
   public todoForm: FormGroup;
@@ -36,30 +35,16 @@ export class MainPageComponent implements OnInit, OnDestroy {
     this.subscription = new Subscription();
     this.todoForm = this.initFormGroup();
     this.isSideNavOpen$ = this.store.pipe(select(fromRoot.getIsSideNavOpen));
-    this.todos$ = this.store.pipe(select(fromRoot.getTasks));
     this.isMobile$ = this.store.pipe(select(fromRoot.getIsMobile));
     this.store.dispatch(new TodoAction.GetTasks());
     this.mode = 'side';
   }
 
   ngOnInit() {
-    const todoSub = this.todos$.subscribe(todoList => {
-      this.unfinishedTodoList = [];
-      this.finishedTodoList = [];
-      todoList.forEach(todo => {
-        if (todo.is_complete) {
-          this.finishedTodoList.push(todo);
-        } else {
-          this.unfinishedTodoList.push(todo);
-        }
-      });
-    });
-
     const sizeSub = this.isMobile$.subscribe(isMobile => {
       if (isMobile) this.mode = 'over';
     });
 
-    this.subscription.add(todoSub);
     this.subscription.add(sizeSub);
   }
 

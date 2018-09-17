@@ -7,8 +7,8 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav [mode]="mode" [opened]="isSideNavOpen$ | async">
     <ul>
-      <li>Uncompleted Tasks</li>
-      <li>Completed Tasks</li>
+      <li [routerLink]="['/']">Uncompleted Tasks</li>
+      <li [routerLink]="['/completed-tasks']">Completed Tasks</li>
     </ul>
   </mat-sidenav>
   <mat-sidenav-content>

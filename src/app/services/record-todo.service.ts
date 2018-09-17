@@ -19,6 +19,9 @@ export class RecordTodoService {
     return from(this.promiseAdd(todo));
   }
 
+  changeState(todo: Todo, isComplete: boolean) {
+    return from(this.promiseChangeState(todo, isComplete));
+  }
 
   promiseFetch(): Promise<Todo[]> {
     return Promise.resolve().then(() => {
@@ -26,13 +29,27 @@ export class RecordTodoService {
     });
   }
 
-  promiseAdd(todo: Todo): any {
-    const todos = JSON.parse(localStorage.getItem(KEY)) || [];
-
-    const newTodos = todos.concat(todo);
+  promiseAdd(todo: Todo): Promise<Todo[]> {
+    const todoList = JSON.parse(localStorage.getItem(KEY)) || [];
+    const newTodoList = todoList.concat(todo);
     return Promise.resolve().then(() => {
-      localStorage.setItem(KEY, JSON.stringify(newTodos));
-      return newTodos;
+      localStorage.setItem(KEY, JSON.stringify(newTodoList));
+      return newTodoList;
+    });
+  }
+
+  promiseChangeState(paramTodo: Todo, isComplete: boolean): Promise<Todo[]> {
+    const todoList = JSON.parse(localStorage.getItem(KEY)) || [];
+    const newTodoList = todoList.map(todo => {
+      if (paramTodo.id === todo.id) {
+        todo.is_complete = isComplete;
+      }
+      return todo;
+    });
+
+    return Promise.resolve().then(() => {
+      localStorage.setItem(KEY, JSON.stringify(newTodoList));
+      return newTodoList;
     });
   }
 }

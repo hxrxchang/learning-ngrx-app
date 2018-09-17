@@ -32,6 +32,7 @@ export class AddTaskComplete implements Action {
 
 export class FinishTask implements Action {
   readonly type = TodoActionTypes.FinishTask;
+  constructor(public payload: Todo) {}
 }
 
 export class FinishTaskComplete implements Action {
@@ -40,6 +41,7 @@ export class FinishTaskComplete implements Action {
 
 export class UnfinishTask implements Action {
   readonly type = TodoActionTypes.UnfinishTask;
+  constructor(public payload: Todo) {}
 }
 
 export class UnfinishTaskComplete implements Action {

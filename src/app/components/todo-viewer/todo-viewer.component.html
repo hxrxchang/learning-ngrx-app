@@ -1,8 +1,7 @@
-<div id="container">
-  <div id="title">
-    {{ todo.title }}
-  </div>
-  <div id="button">
-    <mat-icon>check_circle</mat-icon>
-  </div>
-</div>
+<h2 mat-dialog-title>
+  {{todo.title}}
+</h2>
+<mat-dialog-content>
+  <p>{{todo.description}}</p>
+  <p>deadline: {{todo.deadline | date:"MM/dd/yy"}}</p>
+</mat-dialog-content>
