@@ -1,0 +1,10 @@
+<h1 id="title">{{title}}</h1>
+<mat-list>
+  <mat-list-item class="item" *ngFor="let todo of todoList">
+    <div (click)="onClickOpenDetail(todo)">{{todo.title}}</div>
+    <div class="icons">
+      <mat-icon class="icon" (click)="onClickChangeState(todo)">check_circle_outline</mat-icon>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

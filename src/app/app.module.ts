@@ -19,6 +19,7 @@ import { SignUpComponent } from './container/sign-up/sign-up.component';
 import { UncompleteTasksComponent } from './container/uncomplete-tasks/uncomplete-tasks.component';
 import { CompletedTasksComponent } from './container/completed-tasks/completed-tasks.component';
 import { TodoViewerComponent } from './components/todo-viewer/todo-viewer.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TodoViewerComponent } from './components/todo-viewer/todo-viewer.compon
     SignUpComponent,
     UncompleteTasksComponent,
     CompletedTasksComponent,
-    TodoViewerComponent
+    TodoViewerComponent,
+    TaskListComponent
   ],
   entryComponents: [
     AddTaskModalComponent,

@@ -1,10 +1,6 @@
-<h1 id="title">uncompleted Task List</h1>
-<mat-list>
-  <mat-list-item class="item" *ngFor="let todo of uncompleteTodoList">
-    <div (click)="onClickView(todo)">{{todo.title}}</div>
-    <div class="icons">
-      <mat-icon class="icon" (click)="onClickComplete(todo)">check_circle_outline</mat-icon>
-    </div>
-    <mat-divider></mat-divider>
-  </mat-list-item>
-</mat-list>
+<app-task-list
+[title]="title"
+[todoList]="uncompleteTodoList$ | async"
+(openDetail)="onClickView($event)"
+(changeState)="onClickComplete($event)"
+></app-task-list>

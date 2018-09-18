@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store, select } from "@ngrx/store";
-
+import { map } from "rxjs/operators";
 import { Observable, Subscription } from "rxjs";
 import { MatDialog } from "@angular/material";
 
@@ -17,9 +17,10 @@ import { TodoViewerComponent } from "./../../components/todo-viewer/todo-viewer.
 })
 export class CompletedTasksComponent implements OnInit, OnDestroy {
   todoList$: Observable<Todo[]>;
-  completedTodoList: Todo[];
+  completedTodoList$: Observable<Todo[]>;
   private isMobile$: Observable<boolean>;
   private subscription: Subscription;
+  title: string = 'Completed Task List';
 
   constructor(
     private store: Store<fromRoot.State>,
@@ -31,16 +32,9 @@ export class CompletedTasksComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    const todoListSub = this.todoList$.subscribe(todoList => {
-      this.completedTodoList = [];
-      todoList.forEach(todo => {
-        if (todo.is_complete) {
-          this.completedTodoList.push(todo);
-        }
-      });
-    });
-
-    this.subscription.add(todoListSub);
+    this.completedTodoList$ = this.todoList$.pipe(
+      map(todoList => todoList.filter(todo => todo.is_complete))
+    );
   }
 
   ngOnDestroy() {
