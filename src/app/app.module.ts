@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from './material';
 import { reducers } from './reducers'
@@ -41,6 +42,7 @@ import { TaskListComponent } from './components/task-list/task-list.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule,
