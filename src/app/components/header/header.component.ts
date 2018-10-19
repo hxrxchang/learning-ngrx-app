@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('11111');
   }
 
   openAddTaskModal() {
