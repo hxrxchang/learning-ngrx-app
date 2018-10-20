@@ -1,6 +1,6 @@
-<app-task-list
+<app-todo-list
 [title]="title"
 [todoList]="uncompleteTodoList$ | async"
 (openDetail)="onClickView($event)"
 (changeState)="onClickComplete($event)"
-></app-task-list>
+></app-todo-list>

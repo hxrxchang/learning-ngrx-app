@@ -1,12 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Todo } from './../../models/todo.model';
+import { Todo } from '../../models/todo.model';
 
 @Component({
-  selector: 'app-task-list',
-  templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.css']
+  selector: 'app-todo-list',
+  templateUrl: './todo-list.component.html',
+  styleUrls: ['./todo-list.component.css']
 })
-export class TaskListComponent {
+export class TodoListComponent {
   @Input() title: string;
   @Input() todoList: Todo[];
   @Output() openDetail = new EventEmitter<Todo>();

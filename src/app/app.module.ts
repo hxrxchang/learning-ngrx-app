@@ -14,29 +14,29 @@ import { TodoEffects } from "./effects/todo.effect";
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainPageComponent } from './container/main-page/main-page.component';
-import { AddTaskModalComponent } from './components/add-task-modal/add-task-modal.component';
+import { TodoModalComponent } from './components/todo-modal/todo-modal.component';
 import { SignInComponent } from './container/sign-in/sign-in.component';
 import { SignUpComponent } from './container/sign-up/sign-up.component';
-import { UncompleteTasksComponent } from './container/uncomplete-tasks/uncomplete-tasks.component';
-import { CompletedTasksComponent } from './container/completed-tasks/completed-tasks.component';
+import { UncompleteTodoListComponent } from './container/uncomplete-todo-list/uncomplete-todo-list.component';
+import { CompletedTodoListComponent } from './container/completed-todo-list/completed-todo-list.component';
 import { TodoViewerComponent } from './components/todo-viewer/todo-viewer.component';
-import { TaskListComponent } from './components/task-list/task-list.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MainPageComponent,
-    AddTaskModalComponent,
+    TodoModalComponent,
     SignInComponent,
     SignUpComponent,
-    UncompleteTasksComponent,
-    CompletedTasksComponent,
+    UncompleteTodoListComponent,
+    CompletedTodoListComponent,
     TodoViewerComponent,
-    TaskListComponent
+    TodoListComponent
   ],
   entryComponents: [
-    AddTaskModalComponent,
+    TodoModalComponent,
     TodoViewerComponent
   ],
   imports: [

@@ -4,8 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainPageComponent } from './container/main-page/main-page.component';
 import { SignInComponent } from './container/sign-in/sign-in.component';
 import { SignUpComponent } from './container/sign-up/sign-up.component';
-import { UncompleteTasksComponent } from './container/uncomplete-tasks/uncomplete-tasks.component';
-import { CompletedTasksComponent } from './container/completed-tasks/completed-tasks.component';
+import { UncompleteTodoListComponent } from './container/uncomplete-todo-list/uncomplete-todo-list.component';
+import { CompletedTodoListComponent } from './container/completed-todo-list/completed-todo-list.component';
 
 const routes: Routes =  [
   { path: '', redirectTo: '/uncompleted-tasks', pathMatch: 'full' },
@@ -13,8 +13,8 @@ const routes: Routes =  [
     path: '',
     component: MainPageComponent,
     children: [
-      { path: 'uncompleted-tasks', component: UncompleteTasksComponent },
-      { path: 'completed-tasks', component: CompletedTasksComponent }
+      { path: 'uncompleted-tasks', component: UncompleteTodoListComponent },
+      { path: 'completed-tasks', component: CompletedTodoListComponent }
     ]
   },
   {

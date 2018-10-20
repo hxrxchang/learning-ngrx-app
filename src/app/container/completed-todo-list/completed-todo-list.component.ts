@@ -4,18 +4,18 @@ import { map } from "rxjs/operators";
 import { Observable, Subscription } from "rxjs";
 import { MatDialog } from "@angular/material";
 
-import { Todo } from "./../../models/todo.model";
-import * as fromRoot from "./../../reducers";
-import * as TodoActions from './../../actions/todo.action';
+import { Todo } from "../../models/todo.model";
+import * as fromRoot from "../../reducers";
+import * as TodoActions from '../../actions/todo.action';
 
-import { TodoViewerComponent } from "./../../components/todo-viewer/todo-viewer.component";
+import { TodoViewerComponent } from "../../components/todo-viewer/todo-viewer.component";
 
 @Component({
-  selector: "app-completed-tasks",
-  templateUrl: "./completed-tasks.component.html",
-  styleUrls: ["./completed-tasks.component.css"]
+  selector: "app-completed-todo-list",
+  templateUrl: "./completed-todo-list.component.html",
+  styleUrls: ["./completed-todo-list.component.css"]
 })
-export class CompletedTasksComponent implements OnInit, OnDestroy {
+export class CompletedTodoListComponent implements OnInit, OnDestroy {
   todoList$: Observable<Todo[]>;
   completedTodoList$: Observable<Todo[]>;
   private isMobile$: Observable<boolean>;

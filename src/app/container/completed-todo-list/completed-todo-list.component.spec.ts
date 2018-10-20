@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UncompleteTasksComponent } from './uncomplete-tasks.component';
+import { CompletedTodoListComponent } from './completed-todo-list.component';
 
-describe('UncompleteTasksComponent', () => {
-  let component: UncompleteTasksComponent;
-  let fixture: ComponentFixture<UncompleteTasksComponent>;
+describe('CompletedTasksComponent', () => {
+  let component: CompletedTodoListComponent;
+  let fixture: ComponentFixture<CompletedTodoListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UncompleteTasksComponent ]
+      declarations: [ CompletedTodoListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UncompleteTasksComponent);
+    fixture = TestBed.createComponent(CompletedTodoListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
