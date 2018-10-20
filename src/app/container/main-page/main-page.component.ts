@@ -36,7 +36,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
     this.todoForm = this.initFormGroup();
     this.isSideNavOpen$ = this.store.pipe(select(fromRoot.getIsSideNavOpen));
     this.isMobile$ = this.store.pipe(select(fromRoot.getIsMobile));
-    this.store.dispatch(new TodoAction.GetTasks());
+    this.store.dispatch(new TodoAction.GetTodoList());
     this.mode = 'side';
   }
 
@@ -70,7 +70,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
       deadline: todoForm.value.deadline
     }
 
-    this.store.dispatch(new TodoAction.AddTask(params));
+    this.store.dispatch(new TodoAction.AddTodo(params));
     this.todoForm.reset();
   }
 

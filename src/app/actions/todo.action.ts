@@ -2,58 +2,58 @@ import { Action } from '@ngrx/store';
 import { Todo } from './../models/todo.model';
 
 export enum TodoActionTypes {
-  GetTasks = '[Todo] Get Tasks',
-  GetTasksComplete = '[Todo] Get Tasks Complete',
-  AddTask = "[Todo] Add Task",
-  AddTaskComplete = "[Todo] Add Task Complete",
-  FinishTask = "[Todo] Finish Task",
-  FinishTaskComplete = "[Todo] Finish Task Complete",
-  UnfinishTask = "[Todo] Unfinish Task",
-  UnfinishTaskComplete = "[Todo] Unfinish Task Complete",
+  GetTodoList = '[Todo] Get Todo List',
+  GetTodoListComplete = '[Todo] Get Todo List Complete',
+  AddTodo = "[Todo] Add Todo",
+  AddTodoComplete = "[Todo] Add Todo Complete",
+  FinishTodo = "[Todo] Finish Todo",
+  FinishTodoComplete = "[Todo] Finish Todo Complete",
+  UnfinishTodo = "[Todo] Unfinish Todo",
+  UnfinishTodoComplete = "[Todo] Unfinish Todo Complete",
 }
 
-export class GetTasks implements Action {
-  readonly type = TodoActionTypes.GetTasks;
+export class GetTodoList implements Action {
+  readonly type = TodoActionTypes.GetTodoList;
 }
 
-export class GetTasksComplete implements Action {
-  readonly type = TodoActionTypes.GetTasksComplete;
+export class GetTodoListComplete implements Action {
+  readonly type = TodoActionTypes.GetTodoListComplete;
   constructor(public payload: {todoList: Todo[]}) {}
 }
 
-export class AddTask implements Action {
-  readonly type = TodoActionTypes.AddTask;
+export class AddTodo implements Action {
+  readonly type = TodoActionTypes.AddTodo;
   constructor(public payload: Todo) {}
 }
 
-export class AddTaskComplete implements Action {
-  readonly type = TodoActionTypes.AddTaskComplete;
+export class AddTodoComplete implements Action {
+  readonly type = TodoActionTypes.AddTodoComplete;
 }
 
-export class FinishTask implements Action {
-  readonly type = TodoActionTypes.FinishTask;
+export class FinishTodo implements Action {
+  readonly type = TodoActionTypes.FinishTodo;
   constructor(public payload: Todo) {}
 }
 
-export class FinishTaskComplete implements Action {
-  readonly type = TodoActionTypes.FinishTaskComplete;
+export class FinishTodoComplete implements Action {
+  readonly type = TodoActionTypes.FinishTodoComplete;
 }
 
-export class UnfinishTask implements Action {
-  readonly type = TodoActionTypes.UnfinishTask;
+export class UnfinishTodo implements Action {
+  readonly type = TodoActionTypes.UnfinishTodo;
   constructor(public payload: Todo) {}
 }
 
-export class UnfinishTaskComplete implements Action {
-  readonly type = TodoActionTypes.UnfinishTaskComplete;
+export class UnfinishTodoComplete implements Action {
+  readonly type = TodoActionTypes.UnfinishTodoComplete;
 }
 
 export type TodoActions =
-  | GetTasks
-  | GetTasksComplete
-  | AddTask
-  | AddTaskComplete
-  | FinishTask
-  | FinishTaskComplete
-  | UnfinishTask
-  | UnfinishTaskComplete
+  | GetTodoList
+  | GetTodoListComplete
+  | AddTodo
+  | AddTodoComplete
+  | FinishTodo
+  | FinishTodoComplete
+  | UnfinishTodo
+  | UnfinishTodoComplete

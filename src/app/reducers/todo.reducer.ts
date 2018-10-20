@@ -12,7 +12,7 @@ const initialState: State = {
 
 export function reducer(state = initialState, action: TodoActions): State {
   switch(action.type) {
-    case TodoActionTypes.GetTasksComplete:
+    case TodoActionTypes.GetTodoListComplete:
       const todoList = action.payload.todoList;
       return {...state, todoList: todoList};
 

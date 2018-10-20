@@ -56,6 +56,6 @@ export class UncompleteTasksComponent implements OnInit, OnDestroy {
   }
 
   onClickComplete(todo: Todo) {
-    this.store.dispatch(new TodoAction.FinishTask(todo));
+    this.store.dispatch(new TodoAction.FinishTodo(todo));
   }
 }

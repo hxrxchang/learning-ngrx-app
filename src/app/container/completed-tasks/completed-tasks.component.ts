@@ -56,6 +56,6 @@ export class CompletedTasksComponent implements OnInit, OnDestroy {
   }
 
   onClickChangeState(todo: Todo) {
-    this.store.dispatch(new TodoActions.UnfinishTask(todo));
+    this.store.dispatch(new TodoActions.UnfinishTodo(todo));
   }
 }
